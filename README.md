@@ -13,4 +13,7 @@ __Virtual env recommended for use.__
 # Demo project
     you need change all demo names to your project name
 
+Run project: `uvicorn democore.asgi:app --reload` 
+Uvicorn autostart server 127.0.0.1:8000
+
 __Enjoy it__ :partying_face:
