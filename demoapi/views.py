@@ -5,10 +5,10 @@ from fastapi import APIRouter
 from .schemes import DemoUserBase, DemoUserDisplay
 from .models import DemoUsers
 from starlette.responses import JSONResponse
-app = APIRouter(prefix='/users', tags=['demo'])
+app = APIRouter(prefix='/user', tags=['demo'])
 
 
-@app.post(path='/add-user')
+@app.post('/add')
 def add_user_func(request: DemoUserBase):
     try:
         user = DemoUsers(
@@ -21,7 +21,7 @@ def add_user_func(request: DemoUserBase):
         print(e)
 
 
-@app.get('/get-users', response_model=List[DemoUserDisplay])
+@app.get('/get', response_model=List[DemoUserDisplay])
 def get_user_func():
     try:
         users = DemoUsers.objects.all()
