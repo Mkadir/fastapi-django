@@ -34,11 +34,11 @@ def get_application() -> FastAPI:
                             allow_credentials=True, allow_methods=["*"], allow_headers=["*"], )
 
     # Include all api endpoints
+    fast_app.include_router(demo_router)
 
     # Mounts an independent web URL for Django WSGI application
     fast_app.mount(f"{settings.WSGI_APP_URL}", WSGIMiddleware(application))
 
-    fast_app.include_router(demo_router)
     return fast_app
 
 
